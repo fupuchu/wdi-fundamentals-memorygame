@@ -47,3 +47,38 @@ main{
 img{
   margin: 40px 8px 0 8px;
 }
+footer{
+  text-transform: uppercase;
+  padding: 0px 20px 0 20px;
+  background-color: #0d2c40;
+  color: white;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+a{
+  border-bottom: 2px solid transparent;
+}
+a:hover{
+  border-bottom: 2px solid white;
+}
+.copyright{
+  font-family: "Raleway", sans-serif;
+  float: left;
+}
+.message{
+  font-family: "Raleway", sans-serif;
+  float: right;
+}
+.name{
+  color: #f15b31;
+  font-weight: 700;
+}
+.clearfix:after {
+visibility: hidden;
+display: block;
+content: " ";
+clear: both;
+height: 0;
+font-size: 0;
+}
