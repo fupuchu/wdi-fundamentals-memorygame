@@ -24,22 +24,41 @@ var cards = [
 var cardsInPlay = [];
 
 var checkForMatch = function(){
-  if (cardsInPlay.length === 2){
-    if (cardsInPlay[0] === cardsInPlay[1]){
-      alert("You found a match!");
-    }else {
-      alert("Sorry try again!");
-    }
+  if (cardsInPlay[0] === cardsInPlay[1]){
+    alert("You found a match!");
+  }else {
+    alert("Sorry try again!");
   }
 };
 
-var flipCard = function(cardId){
-  console.log("User flipped" + " " + cards[cardId].rank);
-  cardsInPlay.push(cards[cardId].suit);
-  checkForMatch();
-  console.log(cards[cardId].suit);
-  console.log(cards[cardId].cardImage);
+var flipCard = function(){
+  cardId = this.getAttribute('data-id')
+  console.log(cardId);
+//  console.log("User flipped" + " " + cards[cardId].rank);
+  cardsInPlay.push(cards[cardId].rank);
+
+  this.setAttribute('src', cards[cardId].cardImage);
+  if (cardsInPlay.length === 2){
+    checkForMatch();
+    cardsInPlay = [];
+  };
 };
 
-flipCard(0);
-flipCard(1);
+var createBoard = function(){
+  for (var i = 0; i < cards.length; i++){
+    var cardElement = document.createElement('img');
+
+    cardElement.setAttribute('src', 'images/back.png');
+    cardElement.setAttribute('data-id', i);
+    cardElement.addEventListener('click', flipCard);
+
+    document.getElementById('game-board').appendChild(cardElement);
+  };
+};
+
+createBoard();
+
+
+// We've done it! Think about how you could take this game even further. It might be useful to add a "Reset" button to the HTML and set up an event in the JavaScript file so that the user can reset the game after playing.
+
+//For an extra challenge, consider how you could keep track of and display the user's score.
